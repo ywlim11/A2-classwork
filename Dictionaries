@@ -100,6 +100,24 @@ new_universities = {
 
 top_cs_universities.update(new_universities)
 
+# Printing 20 random names
+
+import json
+import random
+
+# Load the JSON file
+with open('names.json', 'r') as file:
+    names_dict = json.load(file)
+
+# 20 random names from the dictionary
+selected_names = random.sample(list(names_dict.items()), 20)
+
+for name, details in selected_names:
+    print(f"Name: {name}")
+    print(f"  Gender: {details['gender']}")
+    print(f"  Country: {details['country']}")
+    print() # Print a blank line for better readability
+
 # Task 9: Dictionary Comprehension
 print("Task 9")
 uk_universities={"Imperial College London": ("London", "UK"), "University College London (UCL)": ("London", "UK"),"University of Cambridge": ("Cambridge", "UK"), "University of Edinburgh": ("Edinburgh", "UK"),"University of Warwick": ("Coventry", "UK"),"University of Oxford": ("Oxford", "UK")}

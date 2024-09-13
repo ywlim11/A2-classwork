@@ -40,6 +40,7 @@ phone_case_options = [
     "Shimmer Sparkle Case - Silver Glitter (Google Pixel 2 XL)"
 ]
 
+#Bubble sort the phone case based on phone type
 Max_index = len(phone_case_options)
 n = Max_index -1
 for i in range(0,Max_index-1):
@@ -54,3 +55,46 @@ for i in range(0,Max_index-1):
             phone_case_options[j] = temp
     n-=1
 print(phone_case_options)
+
+#Create dictionary
+key_array = []
+for key in dictionary.keys():
+    key_array.append(str(key))
+key_array.sort()
+
+#Binary search the dictionary
+def binary_search(key_array, target):
+    upperbound = len(key_array)
+    lowerbound = 0
+
+    while lowerbound <= upperbound:
+        mid = (upperbound + lowerbound)//2
+        mid_value = key_array[mid]
+        if mid_value.lower()==target.lower():
+            print("Found it!")
+            return 'found'
+        elif mid_value.lower() > target.lower():
+            upperbound = mid - 1
+        else:
+            lowerbound = mid + 1
+    print("Not found")
+    return 'not found'
+
+binary_search(key_array, "Shockproof Armor Case")
+
+#Add customers to a queue
+queue = []
+def enqueue():
+    customer_name = input("What is the customer's name?")
+    queue.append(customer_name)
+    more_names = input("Any other customer's names? y/n")
+    while more_names == "y":
+        customer_name = input("What is the customer's name?")
+        queue.append(customer_name)
+        more_names = input("Any other customer's names? y/n")
+    print(queue)
+
+
+add_queue = input("Are you adding a customer to the queue? y/n")
+if add_queue == "y":
+    enqueue()

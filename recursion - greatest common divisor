@@ -1,0 +1,7 @@
+def gcf(a,b):
+    if b ==0:
+        return a
+    else:
+        return gcf(b,a%b)
+
+print(gcf(6,12))

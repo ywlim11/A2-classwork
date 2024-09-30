@@ -1,12 +1,9 @@
 #Towers Of Hanoi
-def towers_of_hanoi(disk, fromrod, torod, sparerod):
-    if disk==1:
-        print("move disk", disk, "from rod", fromrod, "to rod", torod)
+def ToH(n, fromrod, torod, aux):
+    if n == 1:
+        print("move disc from", fromrod, "to", torod)
         return
-    towers_of_hanoi(disk-1, fromrod, sparerod, torod)
-    print("move disk",disk,"from rod",fromrod,"to rod",torod)
-    towers_of_hanoi(disk-1, sparerod, torod, fromrod)
-
-# A, B and C are the names of the rods
-disk = 3
-towers_of_hanoi(disk,"A","C","B")
+    else:
+        ToH(n-1, fromrod, aux, torod)
+        print("move disc from", fromrod, "to", torod)
+        ToH(n-1, aux, torod, fromrod)

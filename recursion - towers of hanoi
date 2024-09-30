@@ -1,0 +1,12 @@
+#Towers Of Hanoi
+def towers_of_hanoi(numdisks, fromrod, torod, auxrod):
+    if numdisks==0:
+        return "none"
+    towers_of_hanoi(numdisks-1, fromrod, auxrod, torod)
+    print("move disk", numdisks, "from rod", fromrod, "to rod", torod)
+    towers_of_hanoi(numdisks-1, auxrod, torod, fromrod)
+#driver code
+numdisks = 3 #3 discs
+
+# A, B and C are the names of the rods
+towers_of_hanoi(numdisks,"A","C","B")

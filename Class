@@ -1,0 +1,71 @@
+#Create a class
+class Character:
+    def __init__(self):
+        self.name=""
+        self.attack=0
+        self.defence=0
+        self.health=0
+        self.experience=0
+
+    def print_basics(self):
+        print("Name: ",self.name)
+        print("Attack: ",self.attack)
+        print("Defence: ",self.defence)
+        print("Health: ",self.health)
+        print("Experience: ",self.experience)
+
+    def print_me(self):
+        self.print_basics()
+
+    def print_intro(self):
+        print("This is an exciting story")
+
+#POLYMORPHISM - the ability to take various forms (knight and wizard)
+#make a wizard within Character
+
+class wizard(Character):
+    def __init__(self):
+        Character.__init__(self) #need to add in a parent classes
+        self.magic = 0
+
+    def print_me(self):
+        self.print_basics()
+        print("magic ",self.magic)
+
+merlin = wizard()
+merlin.print_me()
+
+#make a knight within Character
+class knight(Character):
+    def __init__(self):
+        Character.__init__(self) #need to add in a parent classes
+        self.armour = 0
+
+    def print_me(self):
+        self.print_basics()
+        print("armour ",self.armour)
+
+#object containment (where classes are within classes)
+class weapon:
+    def attack():
+        print("He swishes his sword")
+
+
+bob = knight()
+bob.print_me()
+bob.weapon.attack() #You can call the class methods inside
+
+#getter bc __health is private & can only access it within class not outside
+
+print("health".arthur.health_getter()) #YES
+#print("health".arthur.__health()) DOES NOT WORK
+
+#debugging help
+print(vars(bob))
+
+#double check answer BUT DO NOT PUT AS CIE ANSWER
+
+yiwen = Character()
+yiwen.print_basics()
+yiwen.attack=100
+print("attack", yiwen.attack)

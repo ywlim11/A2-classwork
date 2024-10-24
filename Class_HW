@@ -1,0 +1,34 @@
+class Characters:
+    def __init__(self):
+        self.height = 170
+        self.power = ""
+        self.food = "food"
+        self.breathe = "oxygen"
+
+class CompSciMan(Characters):
+    def __init__(self):
+        Characters.__init__(self)
+        self.height = 148
+        self.power = "AI bot brain"
+        self.food = "Pizza"
+        self.iq = 100
+    def consume(self):
+        print("Ate",self.food)
+
+class SuperWoman(Characters):
+    def __init__(self):
+        Characters.__init__(self)
+        self.hair = "Pretty"
+
+    def get_hair(self):
+        return self.hair
+    def set_hair(self,new_hair):
+        self.hair = new_hair
+
+eumelia = SuperWoman()
+eumelia.set_hair('bald')
+print("Eumelia became",eumelia.get_hair())
+
+Kkabir = CompSciMan()
+Kkabir.consume()
+eumelia.get_hair()

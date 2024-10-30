@@ -1,19 +1,40 @@
+import random
+
 class DadJoke:
     def __init__(self, prompt, answer):
-        self.prompt = prompt
-        self.answer = answer
+        self.__prompt = prompt
+        self.__answer = answer
 
     def get_prompt(self):
-        return self.prompt
+        return self.__prompt
 
     def get_answer(self):
-        return self.answer
+        return self.__answer
 
 
 class DadJokeFile:
     def __init__(self, filename):
         self.jokes = []
-        self.load_jokes = filename
+        self.load_jokes(filename)
 
-    def load_jokes(self, filename):
+    def load_jokes(self, filename: str):
         with open(filename, 'r') as file:
+            lines = file.readlines()
+            for i in range(0, len(lines), 2):
+                prompt = lines[i].strip()
+                answer = lines[i + 1].strip()
+                self.jokes.append(DadJoke(prompt, answer))
+
+    def print_random_joke(self):
+        if not self.jokes:
+            print("No jokes available.")
+            return
+        joke = random.choice(self.jokes)
+        print("Joke:", joke.get_prompt())
+        input("Your answer: ")
+        print("Actual answer:", joke.get_answer())
+
+
+if __name__ == "__main__":
+    dad_jokes = DadJokeFile('DadJokes.txt')
+    dad_jokes.print_random_joke()

@@ -1,1 +1,18 @@
+class Monster:
+    def __init__(self,id,Name,Origin,Description,Attack,Magical_Force,Magical_Defence,Defence, Intelligence,Health):
+        self.id = id
+        self.Name = Name
+        self.Origin = Origin
+        self.Description = Description
+        self.Attack = Attack
+        self.Magical_Force = Magical_Force
+        self.Magical_Defence = Magical_Defence
+        self.Defence = Defence
+        self.Intelligence = Intelligence
+        self.Health = Health
 
+bog_monster = Monster(1,
+                      "Bog Monster",
+                      "The bogs of Lincolnshire",
+                      "A foul monster that sucks people down into the bog!",
+                      75,12,15,65,12,99)

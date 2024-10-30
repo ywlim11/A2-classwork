@@ -1,0 +1,19 @@
+class DadJoke:
+    def __init__(self, prompt, answer):
+        self.prompt = prompt
+        self.answer = answer
+
+    def get_prompt(self):
+        return self.prompt
+
+    def get_answer(self):
+        return self.answer
+
+
+class DadJokeFile:
+    def __init__(self, filename):
+        self.jokes = []
+        self.load_jokes = filename
+
+    def load_jokes(self, filename):
+        with open(filename, 'r') as file:

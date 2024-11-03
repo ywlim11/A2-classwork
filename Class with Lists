@@ -1,3 +1,7 @@
+import os
+
+monster_collection = []
+
 class Monster:
     def __init__(self,id,Name,Origin,Description,Attack,Magical_Force,Magical_Defence,Defence, Intelligence,Health):
         self.id = id
@@ -11,8 +15,34 @@ class Monster:
         self.Intelligence = Intelligence
         self.Health = Health
 
-bog_monster = Monster(1,
-                      "Bog Monster",
-                      "The bogs of Lincolnshire",
-                      "A foul monster that sucks people down into the bog!",
-                      75,12,15,65,12,99)
+    def printmonsters(self):
+        print("Id:  ", self.id)
+        print("Name:  ", self.Name)
+        print("Origin:  ", self.Origin)
+        print("Desc:  ", self.Description)
+        print("Attack:  ", self.Attack)
+        print("Magical_Force:  ", self.Magical_Force)
+        print("Magical_Defence:  ", self.Magical_Defence)
+        print("Defence:  ", self.Defence)
+        print("Intelligence:  ", self.Intelligence)
+        print("Health:  ", self.Health)
+
+    def __repr__(self):    #repr stands for "represent"
+        return self.Name
+
+def read_monsters():
+        try:
+            with open('Monsters.txt') as f:
+                for line in f:
+                    parts = line.split(",")
+                    monster_collection.append(Monster(parts[0], parts[1], parts[2], parts[3], parts[4], parts[5], parts[6], parts[7], parts[8], parts[9]))
+
+        except OSError:
+            print("Sorry, could not find the file. Make sure it is in the correct directory. The current directory is",os.getcwd())
+
+read_monsters()
+
+monster_collection[4].printmonsters()
+
+
+print(monster_collection)

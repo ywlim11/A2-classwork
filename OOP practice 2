@@ -39,3 +39,4 @@ def readData():
 readData()
 
 #(c)
+# LIST USED AS AN ARRAY (must comment in exam)

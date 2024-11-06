@@ -1,0 +1,41 @@
+#(a)
+class TreasureChest:
+    #private question : string
+    #private answer : string
+    #private points : points
+    def __init__(self, question, answer, points):
+        self.__question = question
+        self.__answer = answer
+        self.__points = points
+
+
+#(b)
+
+#METHOD 1
+arrayTreasure = []
+def readData():
+
+    filename = 'Treasure Chest Data'
+
+    try:
+        file = open(filename, "r") #"r" means read mode
+        dataFetched = (file.readline()).strip()
+        while dataFetched != '':
+            question = dataFetched
+            answer = (file.readline()).strip()
+            points = (file.readline()).strip()
+
+            arrayTreasure.append(TreasureChest(question, answer, points))
+            dataFetched = (file.readline()).strip()
+            print(vars(arrayTreasure[-1]))
+
+        file.close()
+    except IOError:
+        print("Could not find file")
+        
+#METHOD 2
+
+
+readData()
+
+#(c)
